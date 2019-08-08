@@ -5,21 +5,23 @@
             overlay
             img-src="https://picsum.photos/900/250/?image=3"
             img-alt="Card Image"
-            text-variant="white"
-            title="Image Overlay"
-            sub-title="Subtitle"
+            text-variant="black"
+            title="프로젝트 정보 등록"
+            img-height = "150px"
         >
-            <b-card-text>
-            Some quick example text to build on the card and make up the bulk of the card's content.
+            <b-card-text >
+            상세하게 작성할수록 더 적합한 파트너스를 만날 수 있습니다.
             </b-card-text>
          </b-card>
     </div>
     <!-- <Complete/> -->
     <div>
-      <component :is="whichStep"></component>
-      <b-button variant="outline-primary" style="margin-top: 12px;" @click="previous">Previous step</b-button>
-      <b-button variant="outline-primary" style="margin-top: 12px;" @click="next">Next step</b-button>
+      <component :is="whichStep" @sendForm='sendForm' v-bind:props = "aaaa"></component>
+      <!-- <b-button variant="outline-primary" style="margin-top: 12px;" @click="previous">Previous step</b-button>
+      <b-button variant="outline-primary" style="margin-top: 12px;" @click="next">Next step</b-button> -->
     </div>
+    form : {{form}}
+    <todo-item v-bind="form"></todo-item>
     <MainNav />
 </div>
 </template>
@@ -38,10 +40,28 @@ components: {
     // Complete
   },data () {
     return {
-      active: 0
+      active: 0,
+      test:1,
+      form: {
+          category: '',
+          project_name: '',
+          period: '',
+          budget: '',
+          state:'',
+          contents:'',
+          tech:'',
+          dead_line:'',
+          location:'',
+          start_date:''
+        }
     }
   },
   methods: {
+    sendForm(form){
+      this.form = form;
+      this.active++;
+      console.log("sendform",this.form);
+    },
     previous() {
       if (this.active-- === 0) this.active = 1
     },
@@ -63,5 +83,10 @@ components: {
 </script>
 
 <style>
-
+.card img{
+  opacity: 0.3;
+}
+.card .card-text{
+  opacity: 0.7;
+}
 </style>
