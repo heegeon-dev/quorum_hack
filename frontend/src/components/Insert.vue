@@ -77,7 +77,7 @@
       </b-form-group>
 
       <b-form-group id="input-group-2" label="사전 미팅" label-for="input-2">
-        <b-form-select v-model="selected" :options="select_option" class="mt-3"></b-form-select>
+        <b-form-select v-model="form.meeting" :options="select_option" class="mt-3"></b-form-select>
       </b-form-group>
 
       <b-form-group id="input-group-2" label="클라이언트 위치:" label-for="input-2">
@@ -135,7 +135,8 @@ export default {
           tech:'',
           dead_line:'',
           location:'',
-          start_date:''
+          start_date:'',
+          meeting:''
         },
         select_option:[
           { value: 'off', text: '오프라인 미팅' },

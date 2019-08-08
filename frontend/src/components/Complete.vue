@@ -8,7 +8,7 @@
       <b-col md="6">
         <b-card-body title="Horizontal Card" style="margin-top:40%">
           <b-card-text>
-            {{this.form}}
+            {{form}}
           </b-card-text>
         </b-card-body>
       </b-col>
@@ -20,12 +20,14 @@
 <script>
 export default {
     data(){
-      form=null
+      return{
+
+      }
     },
     props: ['form'],
     method:{
       
-    }
+    },
 }
 </script>
 

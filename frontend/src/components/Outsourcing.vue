@@ -16,12 +16,11 @@
     </div>
     <!-- <Complete/> -->
     <div>
-      <component :is="whichStep" @sendForm='sendForm' v-bind:props = "aaaa"></component>
+      <component :is="whichStep" @sendForm='sendForm' :form=this.form></component>
       <!-- <b-button variant="outline-primary" style="margin-top: 12px;" @click="previous">Previous step</b-button>
       <b-button variant="outline-primary" style="margin-top: 12px;" @click="next">Next step</b-button> -->
     </div>
     form : {{form}}
-    <todo-item v-bind="form"></todo-item>
     <MainNav />
 </div>
 </template>
@@ -52,7 +51,8 @@ components: {
           tech:'',
           dead_line:'',
           location:'',
-          start_date:''
+          start_date:'',
+          meeting:''
         }
     }
   },
@@ -60,7 +60,6 @@ components: {
     sendForm(form){
       this.form = form;
       this.active++;
-      console.log("sendform",this.form);
     },
     previous() {
       if (this.active-- === 0) this.active = 1
