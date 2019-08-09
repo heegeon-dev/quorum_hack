@@ -43,9 +43,9 @@
 
       <b-form-group id="input-group-4">
         <b-form-group label="기획 상태">
-          <b-form-radio  v-model="form.state" name="some-radios" value="0">아이디어만 있습니다</b-form-radio>
-          <b-form-radio  v-model="form.state" name="some-radios" value="1">필요한 내용을 간단히 정리하였습니다.</b-form-radio>
-          <b-form-radio  v-model="form.state" name="some-radios" value="2">상세한 기획문서가 있습니다.</b-form-radio>
+          <b-form-radio  v-model="form.state" name="some-radios" value="아이디어만 있습니다">아이디어만 있습니다</b-form-radio>
+          <b-form-radio  v-model="form.state" name="some-radios" value=">필요한 내용을 간단히 정리하였습니다.">필요한 내용을 간단히 정리하였습니다.</b-form-radio>
+          <b-form-radio  v-model="form.state" name="some-radios" value="상세한 기획문서가 있습니다.">상세한 기획문서가 있습니다.</b-form-radio>
         </b-form-group>
       </b-form-group>
 
@@ -139,8 +139,8 @@ export default {
           meeting:''
         },
         select_option:[
-          { value: 'off', text: '오프라인 미팅' },
-          { value: 'on', text: '온라인 미팅' },
+          { value: '오프라인 미팅', text: '오프라인 미팅' },
+          { value: '온라인 미팅', text: '온라인 미팅' },
         ],       
         show: true
       }

@@ -27,8 +27,8 @@
 
 <script>
 import MainNav from '@/components/MainNav.vue'
-import Insert from '@/components/Insert.vue'
-import Complete from '@/components/Complete.vue'
+// import Insert from '@/components/Insert.vue'
+// import Complete from '@/components/Complete.vue'
 
 export default {
 components: {
@@ -76,7 +76,12 @@ components: {
         case 1:
           return 'Complete'
       }
-    }
+      
+    },
+      sendData(){
+        evt.preventDefault()
+        alert(JSON.stringify(this.form))
+      }
   }
 }
 </script>

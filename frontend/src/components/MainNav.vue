@@ -2,7 +2,7 @@
   <div class="hello">
   <div>
   <b-navbar id = "navbar" toggleable="lg" type="dark" variant="info" color ="danger">
-    <b-navbar-brand href="#">NavBar</b-navbar-brand>
+    <b-navbar-brand href="/">NavBar</b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 

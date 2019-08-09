@@ -1,7 +1,7 @@
 <template>
 <div>
       <b-card id ="loginCard" img-src="https://placekitten.com/300/300" img-alt="Card image" img-left class="mb-3">
-        <b-form id = "login" @submit="onSubmit">
+        <!-- <b-form id = "login" @submit="onSubmit"> -->
 
       <b-card-text>
         <h3>Login</h3>
@@ -16,7 +16,7 @@
             id="input-1"
             v-model="form.email"
             required
-            placeholder="Enter category"
+            placeholder="Enter email"
           ></b-form-input>
         </b-form-group>
           <b-form-group
@@ -28,13 +28,13 @@
             id="input-1"
             v-model="form.password"
             required
-            placeholder="Enter category"
+            placeholder="Enter password"
           ></b-form-input>
           
         </b-form-group>
 
-    <b-button type="submit" variant="primary">Submit</b-button>      
-      </b-form>
+    <b-button type="submit" variant="primary" @click="onSubmit">Submit</b-button>      
+      <!-- </b-form> -->
     </b-card>
     {{form}}
 
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data(){
     return{
@@ -52,10 +53,19 @@ export default {
     }
   },
    methods: {
-      onSubmit(evt) {
-        evt.preventDefault()
-        alert(JSON.stringify(this.form))
-      },
+      onSubmit() {
+        console.log(this.form);
+        // evt.preventDefault()
+
+        axios.post('http://localhost:3000/login', {
+            email:this.form.email,
+            password:this.form.password
+          }).then(
+            (response) => { 
+              this.$router.push('/');
+            }
+          );
+    },
       onReset(evt) {
         evt.preventDefault()
         // Reset our form values
